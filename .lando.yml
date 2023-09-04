@@ -1,0 +1,4 @@
+name: my-drupal-mod-4-test
+recipe: drupal10
+config:
+  webroot: web
