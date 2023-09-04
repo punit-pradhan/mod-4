@@ -1,0 +1,33 @@
+uuid: c4b0107b-a783-411d-a277-8400ba43c7a8
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.basic_html
+    - node.type.news
+    - node.type.page
+  module:
+    - comment
+    - contact
+    - filter
+    - node
+    - search
+    - shortcut
+    - system
+_core:
+  default_config_hash: I44QAB4es39lNzMQWiJLq2dfjX7VRSOzT_5KzAcUq_M
+id: authenticated
+label: 'Authenticated user'
+weight: -9
+is_admin: false
+permissions:
+  - 'access comments'
+  - 'access content'
+  - 'access shortcuts'
+  - 'access site-wide contact form'
+  - 'post comments'
+  - 'revert news revisions'
+  - 'search content'
+  - 'skip comment approval'
+  - 'use text format basic_html'
+  - 'view page revisions'
