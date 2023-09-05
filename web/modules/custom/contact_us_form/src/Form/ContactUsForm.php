@@ -1,29 +1,27 @@
 <?php
 
-namespace Drupal\author_form\Form;
+namespace Drupal\contact_us_form\Form;
 
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 
 /**
- * Provides the Author Form.
+ * Provides the Contact Us Form.
  */
-class AuthorForm extends FormBase
-{
+class ContactUsForm extends FormBase {
 
   /**
    * {@inheritdoc}
    */
   public function getFormId()
   {
-    return 'author_form';
+    return 'contact_us_form';
   }
 
   /**
    * {@inheritdoc}
    */
-  public function buildForm(array $form, FormStateInterface $form_state)
-  {
+  public function buildForm(array $form, FormStateInterface $form_state) {
     // Define form fields
     $form['full_name'] = [
       '#type' => 'textfield',
@@ -42,13 +40,12 @@ class AuthorForm extends FormBase
       '#title' => $this->t('Phone'),
     ];
 
-    $form['message'] = [
+    $form['messageS'] = [
       '#type' => 'textarea',
       '#title' => $this->t('Message'),
       '#maxlength' => 250,
       '#required' => TRUE,
     ];
-
 
     $form['submit'] = [
       '#type' => 'submit',
@@ -61,17 +58,19 @@ class AuthorForm extends FormBase
   /**
    * {@inheritdoc}
    */
-  public function submitForm(array &$form, FormStateInterface $form_state)
-  {
+  public function submitForm(array &$form, FormStateInterface $form_state) {
     // Get form values
     $values = $form_state->getValues();
 
     // Send notification to admin
     $mailManager = \Drupal::service('plugin.manager.mail');
-    $module = 'author_form';
+    $module = 'Contact_US';
     $key = 'admin_notification';
     $to = 'punitpradhan01@gmail.com';
-    $params['message'] = 'A new query is send: ' . $values['full_name'];
+    $params['message'] = "A new query has been sent:\n\n" .
+    "Full Name: " . $values['full_name'] . "\n" .
+    "Email: " . $values['email'] . "\n" .
+    "Message:\n" . $values['messageS'];
     $langcode = \Drupal::currentUser()->getPreferredLangcode();
     $send = true;
 

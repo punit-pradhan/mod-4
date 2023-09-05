@@ -1,0 +1,29 @@
+uuid: aa59ef09-6693-4853-a8e3-9a1216338066
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.landing_page_of_each_category
+  module:
+    - system
+    - views
+  theme:
+    - bootstrap5
+id: views_block__landing_page_of_each_category_block_2
+theme: bootstrap5
+region: sidebar_second
+weight: 0
+provider: null
+plugin: 'views_block:landing_page_of_each_category-block_2'
+settings:
+  id: 'views_block:landing_page_of_each_category-block_2'
+  label: ''
+  label_display: visible
+  provider: views
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: /homepage

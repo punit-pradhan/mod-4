@@ -1,7 +1,0 @@
-author_form:
-  path: "/Contact_US"
-  defaults:
-    _form: '\Drupal\author_form\Form\AuthorForm'
-    _title: "Contact US"
-  requirements:
-    _permission: "access content"

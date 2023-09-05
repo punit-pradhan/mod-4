@@ -1,0 +1,5 @@
+name: Contact Us Form
+description: Form for contact us
+core_version_requirement: 10.x || 9.x
+type: module
+package: Custom Modules

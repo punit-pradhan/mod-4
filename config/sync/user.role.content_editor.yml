@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - node.type.article
+    - node.type.news
     - node.type.page
     - taxonomy.vocabulary.tags
   module:
@@ -34,10 +35,12 @@ permissions:
   - 'create page content'
   - 'create terms in tags'
   - 'create url aliases'
+  - 'delete any news content'
   - 'delete article revisions'
   - 'delete own article content'
   - 'delete own page content'
   - 'delete page revisions'
+  - 'edit any news content'
   - 'edit own article content'
   - 'edit own comments'
   - 'edit own page content'

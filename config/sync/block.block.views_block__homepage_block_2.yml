@@ -1,0 +1,29 @@
+uuid: e17f7e00-a2cc-4e14-8d1c-51e2521f5424
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.homepage
+  module:
+    - system
+    - views
+  theme:
+    - bootstrap5
+id: views_block__homepage_block_2
+theme: bootstrap5
+region: content
+weight: 0
+provider: null
+plugin: 'views_block:homepage-block_2'
+settings:
+  id: 'views_block:homepage-block_2'
+  label: ''
+  label_display: visible
+  provider: views
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: /homepage

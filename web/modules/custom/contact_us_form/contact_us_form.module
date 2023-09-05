@@ -4,15 +4,14 @@
  * Implements hook_mail().
  */
 
-function author_form_mail($key, &$message, $params)
-{
+function contact_us_form_mail($key, &$message, $params) {
   $options = array(
     'langcode' => $message['langcode'],
   );
   switch ($key) {
     case 'admin_notification':
       $message['from'] = \Drupal::config('system.site')->get('mail');
-      $message['subject'] = \Drupal::translation()->translate('User Info: @info', array('@email' => $params['user']), $options);
+      $message['subject'] = \Drupal::translation()->translate('User Info: @info', array('@email' => $params['full_name']), $options);
       $message['body'][] = $params['message'];
       break;
     case 'user_thank_you':

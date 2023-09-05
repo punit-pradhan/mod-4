@@ -24,6 +24,7 @@
         "drupal/smtp": "^1.2",
         "drupal/tagify": "^1.0",
         "drupal/visitors": "^2.16",
+        "drupal/webform": "^6.2@beta",
         "drush/drush": "^12.1"
     },
     "require-dev": {

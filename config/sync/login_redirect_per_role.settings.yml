@@ -1,0 +1,34 @@
+login:
+  authenticated:
+    redirect_url: /homepage
+    allow_destination: false
+    weight: 0
+  content_editor:
+    redirect_url: /Editor-Dashboard
+    allow_destination: false
+    weight: 0
+  reporter:
+    redirect_url: /reporter-dashboard
+    allow_destination: false
+    weight: 0
+  administrator:
+    redirect_url: /homepage
+    allow_destination: false
+    weight: 0
+logout:
+  authenticated:
+    redirect_url: /homepage
+    allow_destination: false
+    weight: 0
+  content_editor:
+    redirect_url: /homepage
+    allow_destination: false
+    weight: 0
+  reporter:
+    redirect_url: /homepage
+    allow_destination: false
+    weight: 0
+  administrator:
+    redirect_url: /homepage
+    allow_destination: false
+    weight: 0

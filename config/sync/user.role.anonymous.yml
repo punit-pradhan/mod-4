@@ -26,4 +26,5 @@ permissions:
   - 'revert news revisions'
   - 'search content'
   - 'use text format restricted_html'
+  - 'view news revisions'
   - 'view page revisions'
