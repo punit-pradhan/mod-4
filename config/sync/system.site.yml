@@ -1,0 +1,14 @@
+_core:
+  default_config_hash: VDJxTZtQR21qB4lvOq8zszJZLvLKrSPQpdn2E3T71Ww
+langcode: en
+uuid: 68bf2bb2-735c-4719-8f50-533fc1905179
+name: 'module 4 test'
+mail: taskphp2@gmail.com
+slogan: ''
+page:
+  403: /node/1
+  404: /node/2
+  front: /homepage
+admin_compact_mode: false
+weight_select_max: 100
+default_langcode: en

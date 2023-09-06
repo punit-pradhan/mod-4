@@ -1,0 +1,5 @@
+name: View_Count
+description: Creates a View Counter.
+
+type: module
+core_version_requirement: ^9.4 || ^10

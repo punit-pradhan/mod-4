@@ -1,0 +1,30 @@
+uuid: 3c83997d-fa6c-4e25-a7b7-31a940ac278c
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.restricted_html
+    - node.type.news
+    - node.type.page
+  module:
+    - comment
+    - contact
+    - filter
+    - node
+    - search
+    - system
+_core:
+  default_config_hash: 6WavjUYXIegP9AAg2zXGx54MWIVoomC3SZhNiqe-Dyk
+id: anonymous
+label: 'Anonymous user'
+weight: -10
+is_admin: false
+permissions:
+  - 'access comments'
+  - 'access content'
+  - 'access site-wide contact form'
+  - 'revert news revisions'
+  - 'search content'
+  - 'use text format restricted_html'
+  - 'view news revisions'
+  - 'view page revisions'

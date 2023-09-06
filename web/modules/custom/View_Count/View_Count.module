@@ -1,0 +1,53 @@
+<?php
+use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\node\NodeInterface;
+use Drupal\Core\StringTranslation\StringTranslationTrait;
+
+/**
+ * Implements hook_hooks_example_count_incremented().
+ *
+ * Hooks can be implemented by both the module that invokes them like we are
+ * doing here, as well as by any other enabled module.
+ */
+function View_Count_hooks_count_incremented($current_count, NodeInterface $node) {
+    if ($current_count === 1) {
+      \Drupal::messenger()->addMessage(\Drupal::translation()->translate('This is the first time you have viewed the node %title.', ['%title' => $node->label()]));
+    }
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_view().
+ */
+function View_Count_node_view(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display, $view_mode) {
+    // Count the number of times the current node has been viewed this session.
+    $session = \Drupal::request()->getSession();
+    $current_counts = $session->get('hooks.view_counts', array());
+    if (!isset($current_counts[$entity->id()])) {
+      $current_counts[$entity->id()] = 1;
+    }
+    else {
+      $current_counts[$entity->id()]++;
+    }
+    $session->set('hooks.view_counts', $current_counts);
+
+    // Invoke a hook to alert other modules that the count was updated.
+    $module_handler = \Drupal::moduleHandler();
+
+    // In this example we're invoking hook_hooks_example_count_incremented() and
+    // passing all implementations the current view count for the node, and the
+    // node object itself. Note that you should not include the "hook_" prefix in
+    // the argument.
+    $module_handler->invokeAll('hooks_count_incremented', array($current_counts[$entity->id()], $entity));
+
+    // Display the current number of pages the user has viewed along with the
+    // node's content.
+    $build['view_count'] = array(
+      '#markup' => '<p>' . \Drupal::translation()->translate('You have viewed this node @total times this session.', array('@total' => $current_counts[$entity->id()])) . '</p>',
+      '#cache' => array(
+        'max-age' => 0,
+      ),
+    );
+}
+
+?>
